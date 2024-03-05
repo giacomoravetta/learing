@@ -1,14 +1,9 @@
-/* DatePicker.css */
 .date-picker-container {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #838EE5;
-    /* Light grey background */
     padding: 20px;
-
-    /* Rounded corners for the container */
     box-shadow: 0 10px 8px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow for depth */
     margin: 20px 0;
 }

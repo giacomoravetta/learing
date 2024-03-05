@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import * as d3 from "d3";
 import rawData from '../data/sums_by_region_and_date.json';
-import '../css/Barchart.css'; // Import CSS for transitions
+import '../css/Barchart.css';
 import AxisBottom from './AxisBottom';
 
 
@@ -19,11 +19,11 @@ const transformDataForDate = (rawData) => {
 
 const selectDataForSpecificDate = (transformedData, specificDate) => {
   return transformedData.map(({ region, values }) => {
-    // Find the value object for the specific date
+
     const dateValue = values.find(value => value.date === specificDate);
     return {
       region,
-      frequency: dateValue ? dateValue.frequency : 0 // If date is not found, return 0 or handle as needed
+      frequency: dateValue ? dateValue.frequency : 0 // If date is not found, return 0 or handle as needed. TO CHANGE
     };
   }).sort((a, b) => a.frequency - b.frequency);
 };
@@ -41,7 +41,6 @@ const Barchart = ({ buttonClicked, chooseDate, setButtonClicked, setAnotherDate 
 
   const [currentDateIndex, setCurrentDateIndex] = useState(0);
   const dataTransformed = useMemo(() => {
-    // Make sure you're calling transformDataForDate with the current date
     if (allDates.length > 0) {
       return transformDataForDate(rawData);
     }
@@ -101,7 +100,7 @@ const Barchart = ({ buttonClicked, chooseDate, setButtonClicked, setAnotherDate 
               />
               <text
                 x={xScale(bar.region) + xScale.bandwidth() / 2}
-                y={yScale(bar.frequency) - 10} // Adjust this value as needed
+                y={yScale(bar.frequency) - 10}
                 textAnchor="middle"
                 style={{ fontSize: '10px' }}
                 fill="black"

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AxisBottom = ({ xScale, height }) => {
-  // For a band scale, use the scale's domain to get tick values.
+
   const ticks = xScale.domain();
 
   return (

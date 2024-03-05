@@ -11,20 +11,19 @@ function App() {
 
   const handleUpdate = () => {
 
-    setButtonClicked(!buttonClicked); // Or directly implement the action here
+    setButtonClicked(!buttonClicked);
+    return (
+      <div className="App">
+        <h1>Covid</h1>
+        <p>
+          This React app displays vaccination data across Italy's regions for a selected date. Users can view a bar chart showing the number of people vaccinated in each region, making it easy to compare vaccination progress. The app sources its data from official records to ensure accuracy.</p>
+        <UpdateButton onUpdate={handleUpdate} />
+        <DatePicker onDateChange={(selectedDate) => {
+          setDate(selectedDate)
+        }} />
+        <Barchart buttonClicked={buttonClicked} chooseDate={date} setAnotherDate={setDate} setButtonClicked={setButtonClicked} />
+      </div>
+    );
   }
-  return (
-    <div className="App">
-      <h1>Covid</h1>
-      <p>
-        This React app displays vaccination data across Italy's regions for a selected date. Users can view a bar chart showing the number of people vaccinated in each region, making it easy to compare vaccination progress. The app sources its data from official records to ensure accuracy.</p>
-      <UpdateButton onUpdate={handleUpdate} />
-      <DatePicker onDateChange={(selectedDate) => {
-        setDate(selectedDate)
-      }} />
-      <Barchart buttonClicked={buttonClicked} chooseDate={date} setAnotherDate={setDate} setButtonClicked={setButtonClicked} />
-    </div>
-  );
-}
 
-export default App;
+  export default App;
