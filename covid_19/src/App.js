@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Barchart from "./components/Barchart.js";
 import DatePicker from "./components/DatePicker.js";
